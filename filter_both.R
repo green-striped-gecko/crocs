@@ -65,15 +65,21 @@ nt4b <- nt4b[!duplicated(nt4b$snpp),]
 ql4b <- ql4b[!duplicated(ql4b$snpp),]
 
 
-#TODO
-#now we can filter the snps that are in both datasets
-#reorder so they are in the same order
-#rbind them into on genlight object
+
+#check how often and if sequences are matched
+yy <- sapply(1:nrow(nt4b),  function(x) which(nt4b$qseq[x]==nt4@other$loc.metrics$TrimmedSequence)[1])
 
 
 
+###Todo
+#1. check the duplicates in the blasts (bs) and nt4, ql4. Are they all genuine, snps are different positiion? What about triple hits?
+#2. find out if the ones with indels are safeable
+#3. filter snsp in nt4 that are good hits
+#4. same for ql4
+#5. make sure loc.all is the same in both (or potentially reverse e.g. AT->TA one of them)
+#6. rbind snps which are in both datasets
 
-
+#6
 
 
 
